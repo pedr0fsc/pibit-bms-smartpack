@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PIBIT — Telemetria</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="top">
+    <h1>PIBIT / PUCPR — painel de telemetria</h1>
+    <p>Dois ensaios no mesmo contrato: DHT11 (bancada) e SmartPack (células). Aberto no ESP32, o painel lê <code>/api/telemetry</code>. No GitHub Pages, use MQTT/WSS.</p>
+  </div>
+
+  <div id="wrap">
+    <fieldset>
+      <legend>Ligação ao broker</legend>
+      <form id="conn" action="#">
+        <table class="form">
+          <tr>
+            <th><label for="url">WebSocket (WSS)</label></th>
+            <td><input id="url" type="text" size="48" value="wss://broker.hivemq.com:8884/mqtt"></td>
+          </tr>
+          <tr>
+            <th><label for="topic">Tópico</label></th>
+            <td><input id="topic" type="text" size="48" value="pucpr/pibit/+/telemetry"></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <button type="submit" id="btn-on">Conectar</button>
+              <button type="button" id="btn-off">Desligar</button>
+              <span id="state">desligado</span>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <p class="hint">
+        O firmware publica em TCP <code>mqtt://broker.hivemq.com:1883</code>.
+        DHT11: <code>pucpr/pibit/&lt;id&gt;/telemetry</code>.
+        BMS: <code>smartpack/cell_01/telemetry</code> … <code>cell_04</code>.
+        Tópico extra para o pack: <code>smartpack/+/telemetry</code>.
+      </p>
+    </fieldset>
+
+    <h2>Ambiente (DHT11)</h2>
+    <table id="devs">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Sensor</th>
+          <th>GPIO</th>
+          <th>Umidade</th>
+          <th>Celsius</th>
+          <th>Fahrenheit</th>
+          <th>Kelvin</th>
+          <th>Core acq.</th>
+          <th>Core MQTT</th>
+          <th>Seq.</th>
+          <th>Último</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="empty"><td colspan="11">Nenhum pacote ainda.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Células (SmartPack)</h2>
+    <p id="pack-meta">Nenhum pacote de célula ainda.</p>
+    <table id="cells">
+      <thead>
+        <tr>
+          <th>Célula</th>
+          <th>V (mV)</th>
+          <th>I (mA)</th>
+          <th>T célula</th>
+          <th>SoC</th>
+          <th>SoH</th>
+          <th>Vida</th>
+          <th>Estado</th>
+          <th>Falha</th>
+          <th>Último</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="cells-empty"><td colspan="10">Nenhuma célula ainda.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Log</h2>
+    <pre id="log"></pre>
+  </div>
+  <script src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

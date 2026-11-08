@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  background: #cfcfcf;
+  color: #111;
+  font: 13px/1.45 Verdana, Geneva, sans-serif;
+}
+
+#top {
+  background: #1d3557;
+  color: #fff;
+  padding: 10px 16px;
+  border-bottom: 5px solid #c47c17;
+}
+
+#top h1 {
+  margin: 0 0 4px;
+  font: bold 18px Georgia, "Times New Roman", serif;
+}
+
+#top p {
+  margin: 0;
+  font-size: 12px;
+  color: #dce4ee;
+}
+
+#wrap {
+  max-width: 1080px;
+  margin: 16px auto;
+  padding: 0 12px 32px;
+}
+
+fieldset {
+  background: #efefef;
+  border: 1px solid #666;
+  padding: 10px 12px 6px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+h2 {
+  margin: 22px 0 8px;
+  font: bold 15px Georgia, "Times New Roman", serif;
+  border-bottom: 1px solid #888;
+  padding-bottom: 3px;
+}
+
+table.form th {
+  text-align: left;
+  font-weight: normal;
+  padding: 4px 10px 4px 0;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+input[type="text"] {
+  font: 12px "Courier New", monospace;
+  padding: 3px 4px;
+  border: 1px solid #555;
+  background: #fff;
+  width: 100%;
+  max-width: 520px;
+}
+
+button {
+  font: 12px Verdana, Geneva, sans-serif;
+  padding: 3px 12px;
+  background: #ddd;
+  border: 1px solid #555;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eee;
+}
+
+button:disabled {
+  color: #888;
+  cursor: default;
+}
+
+#state {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+#state.on { color: #165c26; }
+#state.off { color: #7a1d1d; }
+#state.wait { color: #6a4a00; }
+
+.hint {
+  font-size: 11px;
+  color: #333;
+  margin: 8px 0 4px;
+}
+
+code, pre.code, #log {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#devs, #cells {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 12px;
+}
+
+#devs th, #devs td,
+#cells th, #cells td {
+  border: 1px solid #555;
+  padding: 4px 6px;
+  text-align: left;
+}
+
+#devs th, #cells th {
+  background: #d9d9d9;
+}
+
+#devs tr:nth-child(even) td,
+#cells tr:nth-child(even) td {
+  background: #f4f4f4;
+}
+
+#empty td, #cells-empty td {
+  color: #555;
+  font-style: italic;
+}
+
+#pack-meta {
+  font-size: 12px;
+  color: #222;
+}
+
+#log, pre.code {
+  background: #1b1b1b;
+  color: #d4d4d4;
+  border: 1px solid #444;
+  padding: 8px;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+#log {
+  height: 160px;
+  margin: 0;
+}
+
+pre.code {
+  color: #e8e0c8;
+}
