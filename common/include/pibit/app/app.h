@@ -9,6 +9,9 @@ typedef struct {
     comm_ctx_t comm;
 } pibit_app_t;
 
-
+pibit_app_t *pibit_app_instance(void);
+pibit_status_t pibit_app_init(void);
+void pibit_app_lock(void);
+void pibit_app_unlock(void);
 
 #endif // PIBIT_APP_H
